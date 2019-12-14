@@ -1,0 +1,18 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read: if true;
+      allow write: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    match /users/{userId} {
+      allow write: if request.auth.uid == userId
+    }
+
+    match /tracks/{trackId} {
+      allow create: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'creator';
+      allow delete: if request.auth.uid == resource.data.author && !resource.data.isPublic;
+      allow update: if request.auth.uid == resource.data.author;
+    }
+  }
+}

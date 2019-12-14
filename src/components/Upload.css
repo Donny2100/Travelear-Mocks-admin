@@ -1,0 +1,34 @@
+.form-input {
+  width: 100%;
+}
+
+.form-input-upload {
+  width: 100%;
+}
+
+.form-input-upload input,
+.form-input-upload button {
+  float: left;
+}
+
+.form-input-upload input {
+  width: calc(100% - 140px);
+  margin-right: 10px;
+}
+
+.form-input-upload button {
+  width: 100px;
+}
+.form-input-upload span {
+  width: 106px;
+  height: 32px;
+  display: block;
+  background-color: #1c2834;
+  margin: 5px 0px;
+  float: right;
+  color: #ffffff;
+  font-weight: bolder;
+  line-height: 32px;
+  text-align: center;
+  cursor: pointer;
+}
